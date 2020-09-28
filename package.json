@@ -1,0 +1,23 @@
+{
+  "name": "ads-project",
+  "version": "1.0.0",
+  "description": "News API using nodejs,express, oracle DB and PL-SQL queries.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "DhananjayShinde,BhargavPatil,Sandeshyadav",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.1.1",
+    "morgan": "^1.10.0",
+    "oracledb": "^5.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
