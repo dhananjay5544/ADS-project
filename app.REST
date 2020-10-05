@@ -7,6 +7,9 @@ GET http://localhost:8080/api/news/categories
 GET http://localhost:8080/api/news/1
 
 ###
+GET http://localhost:8080/api/news/cat
+
+###
 POST http://localhost:8080/api/news/addNews
 Content-Type: application/json
 
@@ -25,5 +28,3 @@ Content-Type: application/json
 
 GET http://localhost:8080
 Authorization: X-Auth-Key 14b5c76c701c339cefc18700366870c6d91a06343592c4ecd6733c63a37966904a96b90e4cd4f44e94a5d6f0041965263cb96dbb20419d043be3a1d32f0ecffa
-
-

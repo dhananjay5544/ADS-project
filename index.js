@@ -13,23 +13,23 @@ app.use(morgan("combined"));
 app.use(express.json());
 
 app.get("/", authenticate, function (req, res) {
-	res.json({
-		message: "✨✨...Welcome to News API...✨✨",
-		requestedAt: new Date(),
-	});
+  res.json({
+    message: "✨✨...Welcome to News API...✨✨",
+    requestedAt: new Date(),
+  });
 });
 
 function authenticate(req, res, next) {
-	const header = req.headers["authorization"];
-	const apikey = header && header.split(" ")[1];
-	if (apikey !== process.env.API_KEY) {
-		res.status(401).json({
-			message: "🚫Unauthorised Access....",
-			requestedAt: new Date(),
-		});
-	} else {
-		next();
-	}
+  const header = req.headers["authorization"];
+  const apikey = header && header.split(" ")[1];
+  if (apikey !== process.env.API_KEY) {
+    res.status(401).json({
+      message: "🚫Unauthorised Access....",
+      requestedAt: new Date(),
+    });
+  } else {
+    next();
+  }
 }
 
 // routes middlewares
