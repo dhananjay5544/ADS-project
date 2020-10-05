@@ -78,6 +78,22 @@ router.get("/:Id", async (req, res, next) => {
 	}
 });
 
+// Get news which have low news
+router.get("/views/:num", async (req, res, next) => {
+	try {
+		const query = `CALL low_views(${req.params.num});`;
+		const db = await connection();
+		db.query(query, function (err, result) {
+			if (err) throw err;
+			res.json({
+				data: result,
+			});
+		});
+	} catch (error) {
+		next(error);
+	}
+});
+
 // Add new news Entry
 router.post("/addNews", async (req, res, next) => {
 	try {
@@ -102,7 +118,7 @@ router.post("/addNews", async (req, res, next) => {
 	}
 });
 
-// Add new news Entry
+// Update news Entry
 router.post("/updateNews/:id", async (req, res, next) => {
 	try {
 		let params = [];

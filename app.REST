@@ -7,9 +7,25 @@ GET http://localhost:8080/api/news/categories
 GET http://localhost:8080/api/news/10
 
 ###
-GET http://localhost:8080/api/news/cat
+GET http://localhost:8080/api/news/views/10
 
 ###
+// Get news by categories
+router.get("/:Id", async (req, res, next) => {
+	try {
+		const query = `CALL getNewsByCategory(${req.params.Id});`;
+		const db = await connection();
+		db.query(query, function (err, result) {
+			if (err) throw err;
+			res.json({
+				data: result,
+			});
+		});
+	} catch (error) {
+		next(error);
+	}
+});
+
 POST http://localhost:8080/api/news/addNews
 Content-Type: application/json
 
