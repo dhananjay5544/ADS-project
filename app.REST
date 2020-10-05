@@ -4,7 +4,7 @@ GET http://localhost:8080/api/news/
 GET http://localhost:8080/api/news/categories
 
 ###
-GET http://localhost:8080/api/news/1
+GET http://localhost:8080/api/news/10
 
 ###
 GET http://localhost:8080/api/news/cat
@@ -23,6 +23,13 @@ Content-Type: application/json
     "status":"1"
 }
 
+###
+POST http://localhost:8080/api/news/updateNews/34
+Content-Type: application/json
+
+{
+    "title":"updated title new" 
+}
 
 ###
 
