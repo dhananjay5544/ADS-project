@@ -101,11 +101,13 @@ router.post("/addNews", async (req, res, next) => {
 			Math.random() * 100 + 1
 		)} ON SCHEDULE at '${
 			req.body.schedules_time
-		}' DO INSERT INTO news(imageUrl,title,description,source,date,categoryId,status) VALUES('${
+		}' DO INSERT INTO news(imageUrl,title,description,source,date,categoryId,status,views) VALUES('${
 			req.body.imageUrl
 		}','${req.body.title}','${req.body.description}','${
 			req.body.source
-		}',current_timestamp(),${req.body.categoryId},${req.body.status})`;
+		}',current_timestamp(),${req.body.categoryId},${req.body.status},${
+			req.body.views
+		})`;
 		const db = await connection();
 		db.query(query, function (err, result) {
 			if (err) throw err;
@@ -142,7 +144,5 @@ router.post("/updateNews/:id", async (req, res, next) => {
 		next(error);
 	}
 });
-
-//TO DO: Add routes of different functionality
 
 module.exports = router;
